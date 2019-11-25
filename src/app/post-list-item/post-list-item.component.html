@@ -1,0 +1,24 @@
+<!-- <li [ngClass]="loveIts > 0 ? 'list-group-item-success postItems': 'list-group-item-danger postItems'">  -->
+    <li [ngClass]="{'list-group-item': true,
+                    'list-group-item-success': loveIts > 0,
+                    'list-group-item-danger': loveIts < 0}" class="postItems">
+        <div>
+        <div class="row">
+            <div class ="d-flex justify-content-end dateDisplay">
+                    <div>{{ created_at | date : short }}</div>
+            </div>
+        <div>
+            <h4>{{ title }}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="content">
+            {{ content }}
+        </div>
+    </div>
+    <div>
+            <button type="button" class="btn btn-success loveIt" (click)="addLoveIt()">Love it!{{loveIts}}<span class="buttons-icon"><i class="far fa-thumbs-up"></i></span></button>
+            <button type="button" class="btn btn-danger" (click)="doNotLoveIt()">Don't love it!{{loveIts}}<span class="buttons-icon"><i class="far fa-thumbs-down"></i></span></button>
+    </div>
+</div>
+</li>
